@@ -4,8 +4,8 @@ import logout from "../../img/logout.png"
 
 export const Logout = () => {
   return (
-    <LogoutContainer >
-      <LogoutIcon  src={logout} alt="logout icon" />
+    <LogoutContainer className="logout-container">
+      <LogoutIcon className="logout" src={logout} alt="logout icon" />
     </LogoutContainer>
   )
 }
@@ -13,7 +13,7 @@ export const Logout = () => {
 const LogoutContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 35px
+  width: 30px;
 `
 
 const LogoutIcon = styled.img`

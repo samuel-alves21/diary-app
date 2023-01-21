@@ -1,12 +1,15 @@
+import { useMediaQuery } from "react-responsive"
 import styled from "styled-components"
 import { Logo} from "../Logo"
 import { Logout } from "../Logout"
 import { SearchField } from "../SearchField"
 
 export const Nav = () => {
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 430px)' })
+
   return (
-    <NavContainer>
-      <Logo />
+    <NavContainer className="nav-container">
+      {!isSmallScreen && <Logo />}
       <SearchField />
       <Logout />
     </NavContainer>
@@ -22,4 +25,8 @@ const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 430px) {
+    padding: 5px;
+  }
 `

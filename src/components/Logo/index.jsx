@@ -4,8 +4,8 @@ import logo from'../../img/logo.png'
 
 export const Logo = () => {
   return (
-    <LogoContainer>
-      <StyledLogo alt='logo icon' src={logo}/>
+    <LogoContainer className='logo-container'>
+      <StyledLogo alt='logo icon' src={logo} className="logo"/>
     </LogoContainer>
   )
 }
@@ -18,5 +18,5 @@ const StyledLogo = styled.img`
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 23px;
+  width: 21px;
 `
