@@ -1,6 +1,7 @@
 import { useMediaQuery } from "react-responsive"
 import styled from "styled-components"
-import { Logo} from "../Logo"
+
+import { Logo } from "../Logo"
 import { Logout } from "../Logout"
 import { SearchField } from "../SearchField"
 
@@ -19,7 +20,7 @@ export const Nav = () => {
 const NavContainer = styled.div`
   background-color: var(--color-primary);
 
-  height: 64px;
+  height: 55px;
   padding: 0 20px;
 
   display: flex;

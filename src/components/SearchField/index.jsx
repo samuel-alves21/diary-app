@@ -5,8 +5,8 @@ import { Search, SerachIconContainer } from "../Search"
 export const SearchField = () => {
   return (
     <SearchFieldContainer className="search-field-container">
-      <Input placeholder="type to search by name..." className="input-field"/>
-      <Search className="s"/>
+      <Input placeholder="type to search by name..."/>
+      <Search/>
     </SearchFieldContainer>
   )
 }

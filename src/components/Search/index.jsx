@@ -32,7 +32,7 @@ export const SerachIconContainer = styled.div`
     background-color: var(--color-secundary-dark);
     cursor: pointer;
 
-    & ${SerachIcon} {
+    ${SerachIcon} {
       width: 56%;
     }
   }

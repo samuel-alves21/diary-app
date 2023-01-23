@@ -1,22 +1,18 @@
-import styled from "styled-components"
-
-import logout from "../../img/logout.png"
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import styled from 'styled-components';
 
 export const Logout = () => {
-  return (
-    <LogoutContainer className="logout-container">
-      <LogoutIcon className="logout" src={logout} alt="logout icon" />
-    </LogoutContainer>
-  )
+  return <LogoutIcon className='logout'/>
 }
 
-const LogoutContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 30px;
-`
+const LogoutIcon = styled(ExitToAppIcon)`
+font-size: 35px !important;
+color: white;
+transition: transform 0.1s !important;
 
-const LogoutIcon = styled.img`
-  width: 100%;
-  object-fit: contain;
+  &:hover {
+    color: var(--color-secundary);
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 `
