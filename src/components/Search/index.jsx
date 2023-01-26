@@ -36,4 +36,5 @@ export const SerachIconContainer = styled.div`
       width: 56%;
     }
   }
+
 `

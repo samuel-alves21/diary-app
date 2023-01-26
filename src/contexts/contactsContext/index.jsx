@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { nameSort } from "../../functions/nameSort";
 
 export const ContactsContext = createContext()
 
@@ -24,7 +25,13 @@ const data = {
 }
 
 const reducer = (state, action) => {
-  return { ...state }
+  switch(action.types) {
+    case 'name': 
+      const sortedName = nameSort(state.contacts)
+      return {...state, contacts: sortedName}
+    default :
+    return { ...state }
+  }
 }
 
 export const ContactsProvider = ({ children }) => {
@@ -36,5 +43,4 @@ export const ContactsProvider = ({ children }) => {
       { children }
     </ContactsContext.Provider>
   )
-
-} 
+}

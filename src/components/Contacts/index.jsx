@@ -2,7 +2,7 @@ import { useContext } from "react"
 import styled from "styled-components"
 
 import { ContactsContext } from "../../contexts/contactsContext"
-import { Button } from "../Button"
+import { DropDown } from "../DropDown"
 
 export const Contacts = () => {
   const { contactsState:{ contacts } } = useContext(ContactsContext)
@@ -11,7 +11,7 @@ export const Contacts = () => {
   
   return (
     <ContactsContainer className="contacts-container">
-      <Button />
+      <DropDown />
       {contacts.map((contact, index) => (
         <>
         <Line className="line" />
@@ -55,6 +55,7 @@ const Line = styled.span`
   height: 3px;
   background-color: var(--color-secundary);
 `
+
 const Name = styled.p`
   font-size: 1rem;
   width: 25%;
