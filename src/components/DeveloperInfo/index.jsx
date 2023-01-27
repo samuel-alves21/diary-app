@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import GitHubIcon from '@material-ui/icons/GitHub'
 import InstagramIcon from '@material-ui/icons/Instagram'
 

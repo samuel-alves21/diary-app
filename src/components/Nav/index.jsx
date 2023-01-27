@@ -1,6 +1,5 @@
-import { useMediaQuery } from "react-responsive"
 import styled from "styled-components"
-
+import { useMediaQuery } from "react-responsive"
 import { Logo } from "../Logo"
 import { Logout } from "../Logout"
 import { SearchField } from "../SearchField"

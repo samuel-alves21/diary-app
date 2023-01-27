@@ -1,10 +1,9 @@
-import { useContext } from "react"
 import styled from "styled-components"
+import { useContext } from "react"
 import { ContactsContext } from "../../contexts/contactsContext"
 import { DropDownContext } from "../../contexts/dropDownContext"
 
 const handleClick = (e, on, setOn, contactsDispatch) => {
-  console.log(e.target.innerText)
   contactsDispatch({ types: e.target.innerText})
   setOn(!on)
 }

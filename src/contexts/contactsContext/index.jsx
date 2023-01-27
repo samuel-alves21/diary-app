@@ -29,6 +29,10 @@ const reducer = (state, action) => {
     case 'name': 
       const sortedName = nameSort(state.contacts)
       return {...state, contacts: sortedName}
+      
+    case 'set': 
+      return {...state, contacts: [...action.payload]}
+      
     default :
     return { ...state }
   }

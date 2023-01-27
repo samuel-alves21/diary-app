@@ -1,7 +1,6 @@
 import styled from "styled-components"
-
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useContext } from "react";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { DropDownContext } from "../../contexts/dropDownContext";
 
 export const Button = () => {

@@ -1,27 +1,43 @@
-import { useContext } from "react"
 import styled from "styled-components"
-
+import { useRef } from "react"
+import { useContext, useEffect } from "react"
 import { ContactsContext } from "../../contexts/contactsContext"
+import { SearchContext } from "../../contexts/searchContext"
 import { DropDown } from "../DropDown"
 
-export const Contacts = () => {
-  const { contactsState:{ contacts } } = useContext(ContactsContext)
 
-  console.log(contacts)
-  
+export const Contacts = () => {
+  const { contactsState:{ contacts }, contactsDispatch} = useContext(ContactsContext)
+  const { searchValue } = useContext(SearchContext)
+
+  const ref = useRef(contacts)
+
+  useEffect(() => {
+    const temp = []
+    ref.current.forEach((contact) => {
+      if (contact.name.toLowerCase().includes(searchValue)) {
+        temp.push(contact)
+      }
+    })
+    contactsDispatch({ types: 'set', payload: temp })
+  }, [searchValue, contactsDispatch, ])
+
   return (
     <ContactsContainer className="contacts-container">
-      <DropDown />
-      {contacts.map((contact, index) => (
-        <>
-        <Line className="line" />
-        <Contactcontainer className="contact-container">
-          <Name className="name">{contact.name}</Name>
-          <Email className="email">{contact.email}</Email>
-          <Tel className="tel">{contact.tel}</Tel>
-        </Contactcontainer>
-        </>
-      ))}
+      <DropDown notFound={contacts.length ? true : false}/>
+      { contacts.length ?
+        contacts.map((contact, index) => {
+          return (
+          <div className="contact" key={index}>
+            <Line className="line" />
+            <Contactcontainer className="contact-container">
+              <Name className="name">{contact.name}</Name>
+              <Email className="email">{contact.email}</Email>
+              <Tel className="tel">{contact.tel}</Tel>
+            </Contactcontainer>
+          </div> 
+        )}) :
+        <NothingFound>Seens like I could'n find anything -(</NothingFound> }
     </ContactsContainer>
   )
 }
@@ -51,6 +67,7 @@ const Contactcontainer = styled.div`
 `
 
 const Line = styled.span`
+  display: block;
   width: 100%;
   height: 3px;
   background-color: var(--color-secundary);
@@ -70,5 +87,10 @@ const Tel = styled(Name)`
 `
 
 const Email = styled(Name)`
-  width: 50%
+  width: 50%;
+`
+
+const NothingFound = styled.h3 `
+  text-align: center;
+  color: var(--color-primary);
 `

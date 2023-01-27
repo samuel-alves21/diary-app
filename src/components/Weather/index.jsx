@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import weather from "../../img/weather.png"
 
 export const Weather = () => {

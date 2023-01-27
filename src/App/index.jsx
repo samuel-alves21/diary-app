@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components"
 import { ContactsProvider } from "../contexts/contactsContext"
-
 import { Home } from "../pages/Home"
 
 const App = () => {

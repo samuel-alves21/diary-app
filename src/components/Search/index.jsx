@@ -1,19 +1,29 @@
 import styled from "styled-components"
+import ClearIcon from '@material-ui/icons/Clear';
+import { useContext } from "react";
+import { SearchContext } from "../../contexts/searchContext";
 
-import search from "../../img/search.png"
+const handleClick = (input, setSearchValue) => {
+  setSearchValue('')
+  input.current.value = ''
+}
 
-export const Search = () => {
+export const Search = ({ input }) => {
+  const { setSearchValue } = useContext(SearchContext)
+
   return (
-    <SerachIconContainer className="search-icon-container">
-      <SerachIcon src={search} alt="search icon" className="search-icon"/>
+    <SerachIconContainer className="search-icon-container"
+    onClick={() => handleClick(input, setSearchValue)}>
+      <SerachIcon />
     </SerachIconContainer>
   )
 }
 
-const SerachIcon = styled.img`
+const SerachIcon = styled(ClearIcon)`
   object-fit: contain;
-  width: 50%;
   transition: width 0.04s;
+  color: white;
+  transform: scale(0.9);
 `
 
 export const SerachIconContainer = styled.div`
@@ -33,7 +43,7 @@ export const SerachIconContainer = styled.div`
     cursor: pointer;
 
     ${SerachIcon} {
-      width: 56%;
+      transform: scale(1.0) !important;
     }
   }
 

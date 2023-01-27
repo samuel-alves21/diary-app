@@ -1,12 +1,24 @@
 import styled from "styled-components"
-
+import { useRef, useContext } from "react"
+import { SearchContext } from "../../contexts/searchContext"
 import { Search, SerachIconContainer } from "../Search"
 
+const handleChange = (e, setSearchValue) => {
+  setSearchValue(e.target.value)
+}
+
 export const SearchField = () => {
+  const input = useRef()
+
+  const { setSearchValue } = useContext(SearchContext)
+
   return (
     <SearchFieldContainer className="search-field-container">
-      <Input placeholder="type to search by name..."/>
-      <Search/>
+      <Input 
+      ref={input}
+      placeholder="type to filter by name..." 
+      onChange={(e) => handleChange(e, setSearchValue)}/>
+      <Search input={input}/>
     </SearchFieldContainer>
   )
 }

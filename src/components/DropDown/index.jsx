@@ -1,13 +1,14 @@
 import styled from "styled-components"
+
 import { DropDownProvider } from "../../contexts/dropDownContext"
 import { Button } from "../Button"
 import { DropDownOptions } from "../DropDownOptions"
 
-export const DropDown = () => {
+export const DropDown = ({ notFound }) => {
   return (
     <DropDownContainer>
       <DropDownProvider>
-        <Button />
+        {notFound && <Button />}
         <DropDownOptions />
       </DropDownProvider>
     </DropDownContainer>
