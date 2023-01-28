@@ -1,29 +1,27 @@
 import styled from "styled-components"
 import { useContext } from "react"
 import { ContactsContext } from "../../contexts/contactsContext"
-import { DropDownContext } from "../../contexts/dropDownContext"
 
-const handleClick = (e, on, setOn, contactsDispatch) => {
+const handleClick = (e, dropDownToggle, setDropDownToggle, contactsDispatch) => {
   contactsDispatch({ types: e.target.innerText})
-  setOn(!on)
+  setDropDownToggle(!dropDownToggle)
 }
 
-export const DropDownOptions = () => {
-  const { on, setOn } = useContext(DropDownContext)
+export const DropDownOptions = ({ sets: {dropDownToggle, setDropDownToggle} }) => {
   const { contactsDispatch } = useContext(ContactsContext)
 
   return (
-    <DropDownOptionsContainer className="options-container" on={on}>
+    <DropDownOptionsContainer className="options-container" on={dropDownToggle}>
       <Options 
-      onClick={(e) =>handleClick(e, on, setOn, contactsDispatch)}>
+      onClick={(e) =>handleClick(e, dropDownToggle, setDropDownToggle, contactsDispatch)}>
         name
       </Options>
       <Options 
-      onClick={(e) =>handleClick(e, on, setOn, contactsDispatch)}>
+      onClick={(e) =>handleClick(e, dropDownToggle, setDropDownToggle, contactsDispatch)}>
         date
       </Options>
       <Options 
-      onClick={(e) =>handleClick(e, on, setOn, contactsDispatch)}>
+      onClick={(e) =>handleClick(e, dropDownToggle, setDropDownToggle, contactsDispatch)}>
         reset
       </Options>
     </DropDownOptionsContainer>

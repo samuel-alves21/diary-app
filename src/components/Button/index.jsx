@@ -1,14 +1,10 @@
 import styled from "styled-components"
-import { useContext } from "react";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { DropDownContext } from "../../contexts/dropDownContext";
 
-export const Button = () => {
-  const { on, setOn } = useContext(DropDownContext)
-
+export const Button = ({ sets: {dropDownToggle, setDropDownToggle} }) => {
   return  (
-    <StyledButton className="sort-button" onClick={() => {setOn(!on)}} on={on}>
-      ordenar por <ExpandIcon on={on}/>
+    <StyledButton className="sort-button" onClick={() => {setDropDownToggle(!dropDownToggle)}} on={dropDownToggle}>
+      ordenar por <ExpandIcon on={dropDownToggle}/>
     </StyledButton>
   )
 }

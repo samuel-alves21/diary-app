@@ -1,16 +1,16 @@
+import { useState } from "react"
 import styled from "styled-components"
 
-import { DropDownProvider } from "../../contexts/dropDownContext"
 import { Button } from "../Button"
 import { DropDownOptions } from "../DropDownOptions"
 
 export const DropDown = ({ notFound }) => {
+  const [ dropDownToggle, setDropDownToggle ] = useState(false)
+
   return (
     <DropDownContainer>
-      <DropDownProvider>
-        {notFound && <Button />}
-        <DropDownOptions />
-      </DropDownProvider>
+      {notFound && <Button sets={{ dropDownToggle, setDropDownToggle }}/>}
+      <DropDownOptions sets={{ dropDownToggle, setDropDownToggle }}/>
     </DropDownContainer>
   )
 }
