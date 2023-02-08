@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { DeveloperInfo } from "../DeveloperInfo"
-import { IconsInfo } from "../IconsInfo"
+import { DeveloperInfo } from "./DeveloperInfo"
+import { IconsInfo } from "./IconsInfo"
 
 export const Footer = () => {
   return (

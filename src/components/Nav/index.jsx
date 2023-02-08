@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { useMediaQuery } from "react-responsive"
-import { Logo } from "../Logo"
-import { Logout } from "../Logout"
-import { SearchField } from "../SearchField"
+import { Logo } from "./Logo"
+import { Logout } from "./Logout"
+import { SearchField } from "./SearchField"
 
 export const Nav = () => {
   const isSmallScreen = useMediaQuery({ query: '(max-width: 430px)' })
@@ -16,7 +16,7 @@ export const Nav = () => {
   )
 }
 
-const NavContainer = styled.div`
+export const NavContainer = styled.div`
   background-color: var(--color-primary);
 
   height: 55px;
@@ -28,5 +28,9 @@ const NavContainer = styled.div`
 
   @media screen and (max-width: 430px) {
     padding: 5px;
+  }
+
+  @media screen and (max-height: 350px) {
+    height: 30px;
   }
 `

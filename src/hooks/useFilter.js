@@ -1,22 +1,25 @@
 import { useRef, useContext, useEffect } from "react"
-import { ContactsContext } from "../contexts/contactsContext"
+import { UserContext } from "../contexts/userContext"
 import { SearchContext } from "../contexts/searchContext"
 
 export const useFilter = () => {
-  const { contactsState:{ contacts }, contactsDispatch} = useContext(ContactsContext)
+  const { userState: { contacts }, userDispatch} = useContext(UserContext)
   const { searchValue } = useContext(SearchContext)
 
   const ref = useRef(contacts)
-
+  console.log(ref.current)
   useEffect(() => {
-    const temp = []
-    ref.current.forEach((contact) => {
-      if (contact.name.toLowerCase().includes(searchValue)) {
-        temp.push(contact)
-      }
-    })
-    contactsDispatch({ types: 'set', payload: temp })
-  }, [searchValue, contactsDispatch])
+    if (ref.current) {
+      
+      const temp = []
+      ref.current.forEach((contact) => {
+        if (contact.name.toLowerCase().includes(searchValue)) {
+          temp.push(contact)
+        }
+      })
+      userDispatch({ types: 'search', payload: temp })
+    }
+  }, [searchValue, userDispatch])
 
   return [contacts]
 }

@@ -2,21 +2,31 @@ import styled from "styled-components"
 import CloseIcon from '@material-ui/icons/Close';
 import { useContext } from "react";
 import { EditToggleContext } from "../../contexts/editContext";
+import { EditInputs } from "./EditInputs";
+import { InputsContext } from "../../contexts/inputsContext";
 
 export const EditWindow = () => {
   const { editToggle, setEditToggle } = useContext(EditToggleContext)
+  const { inputValue } = useContext(InputsContext)
 
   return (
     <EditWindowContainer className="edit-window-container" on={editToggle}>
       <EditField className="edit-field">
+        <AcitionP>{inputValue.action}</AcitionP>
         <IconCircle className="circle" onClick={() => setEditToggle(!editToggle)}>
           <OutIcon />
         </IconCircle>
-        <H2>Hello...</H2>
+        <EditInputs />
       </EditField>
     </EditWindowContainer>
   )
 }
+
+const AcitionP = styled.p`
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+`
 
 const EditWindowContainer = styled.div`
   display: ${props => props.on ? 'flex' : 'none'};
@@ -32,27 +42,37 @@ const EditField = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50vw;
+  justify-content: center;
+
+  width: 80vw;
+  min-width: 300px;
+  max-width: 500px;
   height: 50vh;
-  background-color: rgba(90, 90, 223, 0.281);
+
+  background-color: rgba(90, 90, 223, 0.644);
   border-radius: 10px;
-  position: relative;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  position: relative;
+  
 `
-const IconCircle = styled.div`
+export const IconCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 50px;
   height: 50px;
+  top: -25px;
+
   background-color: var(--color-secundary);
   border-radius: 50px;
   position: absolute;
-  top: -25px;
-`
+  
 
-const H2 = styled.h2`
-  margin: auto 0;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const OutIcon = styled(CloseIcon)`

@@ -1,20 +1,27 @@
 import styled from "styled-components"
-import { DropDown } from "../DropDown"
-import { ContactData } from "../ContactData"
+import { DropDown } from "./DropDown"
+import { ContactData } from "./ContactData"
 import { useFilter } from "../../hooks/useFilter"
 
 export const Contacts = () => {
-  const [contacts] = useFilter() 
+  const [contacts] = useFilter()
 
   return (
     <ContactsContainer className="contacts-container">
-      <DropDown notFound={contacts.length ? true : false}/>
-      { contacts.length ?
-        contacts.map((contact, index) => {
-          return <ContactData contact={contact} key={index}/>
-        }) 
-        :
-        <NothingFound>Seens like I could'n find anything -(</NothingFound> }
+      { contacts === undefined ? 
+        <p>Voce ainda não possui contatos</p>
+        :     
+        <> 
+          { !!contacts.length && <DropDown /> }
+          { contacts.length ?
+          contacts.map((contact, index) => {
+            return <ContactData contact={contact} key={index}/>
+          }) 
+          :
+          <NothingFound>
+            Seens like I could'n find anything -(
+          </NothingFound> } 
+        </> } 
     </ContactsContainer>
   )
 }

@@ -1,10 +1,14 @@
+import { useContext } from "react"
 import styled from "styled-components"
-import { Weather } from "../Weather"
+import { UserContext } from "../../contexts/userContext"
+import { Weather } from "./Weather"
 
 export const UserMessage = () => {
+  const { userState: { userName }} = useContext(UserContext)
+
   return (
     <MessageContainer className="message-container">
-      <MessageTitle className="message-title">Good night user!</MessageTitle>
+      <MessageTitle className="message-title">Good night {userName}!</MessageTitle>
       <Weather />
     </MessageContainer>
   )
