@@ -16,7 +16,6 @@ export const UserMessage = () => {
 
 const MessageContainer = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 50px 0;
@@ -25,5 +24,5 @@ const MessageContainer = styled.div`
 const MessageTitle = styled.h2`
   color: var(--color-primary);
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-right: 20px;
 `
