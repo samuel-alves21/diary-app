@@ -6,7 +6,7 @@
 /.pnp
 .pnp.js
 
-# firebase config.
+# firebase config
 firebaseConfig.js
 
 # testing
