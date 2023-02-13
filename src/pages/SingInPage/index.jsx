@@ -1,14 +1,12 @@
 import styled from "styled-components"
-import { Footer } from "../../components/Footer"
+import { useEffect, useContext } from "react"
+import { useNavigate } from "react-router"
 import { SingIn } from "../../components/Login/SingIn"
 import { LoginHeader } from "../../components/Login/LoginHeader"
-import { InputErrorMsgProvider } from "../../contexts/InputErrorMsgContext"
-import { useEffect } from "react"
-import { useNavigate } from "react-router"
-import { useContext } from "react"
 import { UserContext } from "../../contexts/userContext"
 import { LoadingContext } from "../../contexts/loadingContext"
 import { Loader } from "../../components/Loader"
+import { LoginFooter } from "../../components/Login/LoginFooter"
 
 export const SignInPage = () => {
   const navigate = useNavigate()
@@ -21,14 +19,12 @@ export const SignInPage = () => {
 
   return (
     <LoginPageContainer>
-      <InputErrorMsgProvider>
-        { !user && 
-        <>
-          <LoginHeader />
-          {loading ? <Loader /> : <SingIn />}
-          <Footer />
-        </> }
-      </InputErrorMsgProvider>
+      { !user && 
+      <>
+        <LoginHeader />
+        {loading ? <Loader /> : <SingIn />}
+        <LoginFooter />
+      </> }
     </LoginPageContainer>
   )
 }

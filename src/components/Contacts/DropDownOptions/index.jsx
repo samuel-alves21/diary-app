@@ -1,27 +1,36 @@
 import styled from "styled-components"
 import { useContext } from "react"
 import { UserContext } from "../../../contexts/userContext"
+import { arraySort } from "../../../utils/arraySort"
 
-const handleClick = (e, dropDownToggle, setDropDownToggle, UserDispatch) => {
-  UserDispatch({ types: 'sort'})
-  setDropDownToggle(!dropDownToggle)
-}
+export const DropDownOptions = ({ sets }) => {
+  const { dropDownToggle, setDropDownToggle, sort} = sets
+  const { filteredContacts: {content, hasChanged}, setFinteredContacts } = sort
+  const { userState: { contacts } } = useContext(UserContext)
 
-export const DropDownOptions = ({ sets: {dropDownToggle, setDropDownToggle} }) => {
-  const { userDispatch } = useContext(UserContext)
+  const handleClick = (e) => {
+    if (e.target.innerText === 'name') {
+      const sortedArray = arraySort(content, hasChanged)
+
+      setFinteredContacts({
+        content: [...sortedArray], 
+        hasChanged: !hasChanged
+      })
+    } else {
+      setFinteredContacts({
+        content: [...contacts],
+        hasChanged: !hasChanged 
+      })
+    }
+    setDropDownToggle(!dropDownToggle)
+  }
 
   return (
     <DropDownOptionsContainer className="options-container" on={dropDownToggle}>
-      <Options 
-      onClick={(e) =>handleClick(e, dropDownToggle, setDropDownToggle, userDispatch)}>
+      <Options onClick={(e) =>handleClick(e)}>
         name
       </Options>
-      <Options 
-      onClick={(e) =>handleClick(e, dropDownToggle, setDropDownToggle, userDispatch)}>
-        date
-      </Options>
-      <Options 
-      onClick={(e) =>handleClick(e, dropDownToggle, setDropDownToggle, userDispatch)}>
+      <Options onClick={(e) =>handleClick(e)}>
         reset
       </Options>
     </DropDownOptionsContainer>
@@ -66,5 +75,3 @@ const Options = styled.p`
     cursor: pointer;
   }
 `
-
-

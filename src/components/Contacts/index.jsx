@@ -2,19 +2,29 @@ import styled from "styled-components"
 import { DropDown } from "./DropDown"
 import { ContactData } from "./ContactData"
 import { useFilter } from "../../hooks/useFilter"
+import { FirstContact } from "./FirstContact"
+import { useState, useContext } from "react"
+import { UserContext } from "../../contexts/userContext"
+
 
 export const Contacts = () => {
-  const [contacts] = useFilter()
+  const [ filteredContacts, setFinteredContacts ] = useState({
+    content: [], 
+    hasChanged: false
+  })
+  const { userState: {contacts} } = useContext(UserContext)
+
+  useFilter(setFinteredContacts)
 
   return (
     <ContactsContainer className="contacts-container">
       { contacts === undefined ? 
-        <p>Voce ainda não possui contatos</p>
-        :     
-        <> 
-          { !!contacts.length && <DropDown /> }
-          { contacts.length ?
-          contacts.map((contact, index) => {
+        <FirstContact />
+        : 
+        <>
+          { !!filteredContacts.content.length && <DropDown sort={{filteredContacts, setFinteredContacts}}/> }
+          { filteredContacts.content.length ?
+          filteredContacts.content.map((contact, index) => {
             return <ContactData contact={contact} key={index}/>
           }) 
           :
@@ -32,6 +42,7 @@ const ContactsContainer = styled.div`
   justify-content: center;
   width: 80vw;
   align-self: center;
+  margin-bottom: 50px;
 
   @media screen and (max-width: 900px) {
     width: 85vw;

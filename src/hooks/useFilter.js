@@ -1,25 +1,22 @@
-import { useRef, useContext, useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { UserContext } from "../contexts/userContext"
 import { SearchContext } from "../contexts/searchContext"
 
-export const useFilter = () => {
-  const { userState: { contacts }, userDispatch} = useContext(UserContext)
+export const useFilter = ( setFinteredContacts) => {
+  const { userState: { contacts }} = useContext(UserContext)
   const { searchValue } = useContext(SearchContext)
 
-  const ref = useRef(contacts)
-  console.log(ref.current)
   useEffect(() => {
-    if (ref.current) {
-      
+    if (contacts) {
       const temp = []
-      ref.current.forEach((contact) => {
+      contacts.forEach((contact) => {
         if (contact.name.toLowerCase().includes(searchValue)) {
           temp.push(contact)
         }
       })
-      userDispatch({ types: 'search', payload: temp })
+      setFinteredContacts((filteredContacts) => {
+        return {...filteredContacts, content: [...temp]}
+      })
     }
-  }, [searchValue, userDispatch])
-
-  return [contacts]
+  }, [searchValue, setFinteredContacts, contacts])
 }

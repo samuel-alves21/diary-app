@@ -11,7 +11,7 @@ export const Footer = () => {
   )
 }
 
-const FooterContainer = styled.footer`
+export const FooterContainer = styled.footer`
   margin-top: auto;
   height: 55px;
   background-color: var(--color-primary);

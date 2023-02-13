@@ -3,17 +3,19 @@ import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import { auth } from '../../../App';
 
-const handleClick = (navigate) => {
-  auth.signOut()
-  .then(() => navigate('/sign-in'))
-  .catch((e) => console.log(e))
-}
 
 export const Logout = () => {
+
+  const handleClick = () => {
+    auth.signOut()
+    .then(() => navigate('/sign-in'))
+    .catch((e) => console.log(e))
+  }
+
   const navigate = useNavigate()
 
   return ( 
-  <LogoutIcon className='logout' onClick={() => handleClick(navigate)}/>
+    <LogoutIcon className='logout' onClick={handleClick}/>
   )
 }
 

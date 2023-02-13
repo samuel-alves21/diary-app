@@ -1,10 +1,10 @@
-import { useState } from "react"
 import styled from "styled-components"
+import { useState } from "react"
 import { AddButton } from "../AddButton"
 import { SortButton } from "../SortButton"
 import { DropDownOptions } from "../DropDownOptions"
 
-export const DropDown = () => {
+export const DropDown = ({ sort }) => {
   const [ dropDownToggle, setDropDownToggle ] = useState(false)
 
   return (
@@ -12,7 +12,7 @@ export const DropDown = () => {
       <AddButton />
       <SortButtonDiv>
         <SortButton sets={{ dropDownToggle, setDropDownToggle }}/>
-        <DropDownOptions sets={{ dropDownToggle, setDropDownToggle }}/>
+        <DropDownOptions sets={{ dropDownToggle, setDropDownToggle, sort }}/>
       </SortButtonDiv>
     </DropDownContainer>
   )

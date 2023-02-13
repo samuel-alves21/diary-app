@@ -1,9 +1,10 @@
+import React from "react";
 import styled from "styled-components";
 import { ContactIcons } from "../ContactIcons";
 
-export const ContactData = ({ contact }) => {
+export const ContactData = React.memo( function ContactData({ contact }) {
   return (
-    <div className="contact">
+    <div className="contact" id={contact.id}>
       <Line className="line" />
       <Contactcontainer className="contact-container">
         <Name className="name">
@@ -16,12 +17,12 @@ export const ContactData = ({ contact }) => {
           {contact.tel}
         </Tel>
         <ContactIcons data={{ 
-          name:contact.name, email :contact.email, tel :contact.tel 
+          name: contact.name, email :contact.email, tel :contact.tel, id: contact.id
         }}/>
       </Contactcontainer>
     </div>
   )
-}
+})
 
 const Contactcontainer = styled.div`
   display: flex;

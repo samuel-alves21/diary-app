@@ -2,10 +2,9 @@ import styled from "styled-components"
 import { useState } from "react"
 import { LoginInputField } from "../LoginInputField"
 import { LoginSubmitBtn } from "../LoginSubmitBtn"
-import { LoginErrorMsg } from "../LoginErrorMsg"
+import { ErrorMsg } from "../../ErrorMsg"
 import { LoginForm } from "../LoginForm"
 import { LoginLink } from "../LoginLink"
-
 
 export const SingIn = () => {
   const [ email, setEmail ] = useState('')
@@ -29,7 +28,7 @@ export const SingIn = () => {
       setEmail={setEmail} 
       setPassword={setPassword}/>
 
-      <LoginErrorMsg />
+      <ErrorMsg />
 
       <LoginSubmitBtn 
       email={email} 
@@ -44,7 +43,6 @@ export const SingIn = () => {
 
 const H2 = styled.h2`
   color: white;
-  padding-bottom: 30px;
 `
 
 const RegisterMessege = styled.p`

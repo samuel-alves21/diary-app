@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useContext } from "react"
 import { InputsContext } from "../../../contexts/inputsContext"
 import { EditSubmitBtn } from "../EditSubmitBtn"
+import { ErrorMsg } from "../../ErrorMsg"
 
 export const EditInputs = () => {
   const { inputValue, setInputValue } = useContext(InputsContext)
@@ -22,22 +23,23 @@ export const EditInputs = () => {
     <InputsContainer className="input-container">
       <InputContainer>
         <Label htmlFor="name">name:</Label>
-        <Input type="text" autoComplete="off" onChange={(e) => handleChange(e)} id="name" value={inputValue.name}/>
+        <Input type="text" autoComplete="off" onChange={(e) => handleChange(e)} id="name" placeholder="contact name" value={inputValue.name}/>
       </InputContainer>
       <InputContainer>
         <Label htmlFor="email">email:</Label>
-        <Input type="text" autoComplete="off" onChange={(e) => handleChange(e)} id="email" value={inputValue.email}/>
+        <Input type="text" autoComplete="off" onChange={(e) => handleChange(e)} id="email" placeholder="contact email" value={inputValue.email}/>
       </InputContainer>
       <InputContainer>
         <Label htmlFor="tel">tel:</Label>
-        <Input type="text" autoComplete="off" onChange={(e) => handleChange(e)} id="tel" value={inputValue.tel}/>
+        <Input type="text" autoComplete="off" onChange={(e) => handleChange(e)} id="tel" placeholder="xx xxxxx-xxxx" value={inputValue.tel}/>
       </InputContainer>
-      <EditSubmitBtn />
+      <ErrorMsg />
+      <EditSubmitBtn inputContext={{inputValue, setInputValue}}/>
     </InputsContainer>
   )
 }
 
-const InputsContainer = styled.div`
+const InputsContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;

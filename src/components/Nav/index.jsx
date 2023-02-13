@@ -20,9 +20,11 @@ export const NavContainer = styled.div`
   background-color: var(--color-primary);
 
   height: 55px;
+  width: 100vw;
   padding: 0 20px;
-
+  z-index: 10;
   display: flex;
+  position: fixed;
   align-items: center;
   justify-content: space-between;
 

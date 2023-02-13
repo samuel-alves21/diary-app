@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { IconCircle } from "../../EditWindow"
+import { IconCircle } from "../../EditWindow/CloseButton"
 import { Btn } from "../../EditWindow/EditSubmitBtn"
 import DoneIcon from '@material-ui/icons/Done';
 

@@ -8,34 +8,34 @@ import { Footer } from "../../components/Footer"
 import { Nav } from "../../components/Nav"
 import { UserMessage } from "../../components/UserMessage"
 import { EditToggleProvider } from "../../contexts/editContext"
-import { InputsProvider } from "../../contexts/inputsContext"
 import { SearchProvider } from "../../contexts/searchContext"
 import { UserContext } from "../../contexts/userContext"
-import { LoadingContext } from "../../contexts/loadingContext"
 import { Loader } from "../../components/Loader"
-import { fetchData } from "../../functions/fetchData"
+import { dataListener } from "../../firebase/data/dataListener"
+import { readUsername } from "../../firebase/auth/readUserName"
+import { InputsProvider } from "../../contexts/inputsContext"
 
 export const HomePage = () => {
-  const  { setLoading }  = useContext(LoadingContext)
   const navigate = useNavigate()
   const { userState: { user, contacts } , userDispatch} = useContext(UserContext)
+  
   useEffect(() => {
     if (!user) navigate('/sign-in')
-  }, [navigate, user])
-
-  useEffect(() => {
     if (user) {
-      setLoading(true)
-      fetchData(user, userDispatch)
-      setLoading(false)
+      dataListener(false, user, userDispatch)
+      readUsername(user, userDispatch)
     }
-  }, [setLoading, user, userDispatch])
+  
+    return (() => {
+      if (user) dataListener(true, user, userDispatch)
+    })
+  }, [user, userDispatch, navigate])
 
   return (
     <HomePageContainer className="home-page">
       <SearchProvider>
+        <InputsProvider>
         <EditToggleProvider>
-          <InputsProvider>
             { contacts === '' ? <Loader /> :
             <>
               <Filter />
@@ -45,8 +45,8 @@ export const HomePage = () => {
               <Contacts />
               <Footer />
             </> }
-          </InputsProvider>
         </EditToggleProvider>
+        </InputsProvider>
       </SearchProvider>
     </HomePageContainer>
   )
@@ -56,4 +56,6 @@ const HomePageContainer = styled.section`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  position: relative;
 `

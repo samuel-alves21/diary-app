@@ -1,23 +1,38 @@
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import styled from 'styled-components';
-import { useContext } from 'react';
+import { useContext, useCallback } from 'react';
 import { EditToggleContext } from '../../../contexts/editContext';
 import { InputsContext } from '../../../contexts/inputsContext';
+import { UserContext } from '../../../contexts/userContext';
+import { deletecontacts } from '../../../firebase/data/deleteContacts';
 
-export const ContactIcons = ({ data: { name, email, tel } }) => {
-  const { editToggle, setEditToggle } = useContext(EditToggleContext)
+export const ContactIcons = ({ data }) => {
+  const { setEditToggle } = useContext(EditToggleContext)
   const { setInputValue } = useContext(InputsContext)
+  const { userState: { user } } = useContext(UserContext)
 
-  const handleClick = (name, email, tel, setInputValue) => {
-    setEditToggle(!editToggle)
-    setInputValue({ name, email, tel, action: 'Edit' })
-  }
+  const handleClick = useCallback((e) => {
+    const { name, email, tel, id } = data
+
+    if (e.target.id === 'edit') {
+      setEditToggle((editToggle) => !editToggle)
+      setInputValue((inputValue) => {
+        return  {...inputValue, name, email, tel, action: {type: 'Edit', id}}
+      })
+    } else {
+      setInputValue((inputValue) => {
+        inputValue = {...inputValue, name, email, tel}
+        deletecontacts(id, user)
+        return inputValue
+      })
+    }
+  }, [data, setEditToggle, setInputValue, user])
   
   return (
     <IconWrapper>
-      <Edit onClick={() => handleClick(name, email, tel, setInputValue)}/>
-      <Delete />
+      <Edit id='edit' onClick={(e) => handleClick(e)}/>
+      <Delete id='delete' onClick={(e) => handleClick(e)}/>
     </IconWrapper>
   )
 }

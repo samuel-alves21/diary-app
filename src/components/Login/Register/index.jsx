@@ -3,13 +3,22 @@ import { useState } from "react"
 import { LoginInputField } from "../LoginInputField"
 import { LoginSubmitBtn } from "../LoginSubmitBtn"
 import { LoginForm } from "../LoginForm"
-import { LoginErrorMsg } from "../LoginErrorMsg"
 import { LoginLink } from "../LoginLink"
+import { ErrorMsg } from "../../ErrorMsg"
+import { InputErrorMsgContext } from "../../../contexts/InputErrorMsgContext"
+import { useContext } from "react"
+import { useEffect } from "react"
 
 export const Register = () => {
+  const { setError } = useContext(InputErrorMsgContext)
+
   const [ name, setName ] = useState('')
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
+
+  useEffect(() => {
+    setError({ hasError: false, errorMsg: '' })
+  }, [setError])
 
   return (
     <LoginForm className="input-container">
@@ -39,7 +48,7 @@ export const Register = () => {
       setEmail={setEmail} 
       setPassword={setPassword}/>
 
-      <LoginErrorMsg />
+      <ErrorMsg />
 
       <LoginSubmitBtn 
       name={name}

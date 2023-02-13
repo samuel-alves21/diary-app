@@ -4,20 +4,18 @@ import { useContext } from "react";
 import { EditToggleContext } from "../../../contexts/editContext";
 import { InputsContext } from "../../../contexts/inputsContext";
 
-const handleClick = (editToggle, setEditToggle, inputValue, setInputValue) => {
-  setEditToggle(!editToggle)
-  setInputValue({
-    ...inputValue, name: '', email: '', tel: '', action: 'Add'
-  })
-}
-
 export const AddButton = () => {
   const { editToggle, setEditToggle } = useContext(EditToggleContext)
   const { inputValue, setInputValue } = useContext(InputsContext)
 
-  return (
-    <StyledAddIcon onClick={() => handleClick(editToggle, setEditToggle, inputValue, setInputValue)}/>
-  )
+  const handleClick = () => {
+    setEditToggle(!editToggle)
+    setInputValue({
+      ...inputValue, name: '', email: '', tel: '', action: { type: 'Add' }
+    })
+  }
+
+  return <StyledAddIcon onClick={handleClick}/>
 }
 
 const StyledAddIcon = styled(AddIcon)`

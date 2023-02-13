@@ -2,8 +2,8 @@ import styled from "styled-components"
 import { useContext } from "react"
 import { Btn } from "../../EditWindow/EditSubmitBtn"
 import { InputErrorMsgContext } from "../../../contexts/InputErrorMsgContext"
-import { userRegister } from "../../../functions/userRegister"
-import { userSignIn } from "../../../functions/userSignIn"
+import { userRegister } from "../../../firebase/auth/userRegister"
+import { userSignIn } from "../../../firebase/auth/userSignIn"
 import { LoadingContext } from "../../../contexts/loadingContext"
 
 const handleClick = (e, name, email, password, setError, error, setLoading, action) => {

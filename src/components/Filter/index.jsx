@@ -6,8 +6,7 @@ export const Filter = () => {
   const { editToggle } = useContext(EditToggleContext)
 
   return (
-    <FilterStyled on={editToggle} className='filter'>
-    </FilterStyled>
+    <FilterStyled on={editToggle} className='filter'></FilterStyled>
   )
 }
 

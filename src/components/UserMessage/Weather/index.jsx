@@ -1,10 +1,9 @@
 import styled from "styled-components"
-import weather from "../../../img/weather.png"
 
-export const Weather = () => {
+export const Weather = ({ weatherIcon }) => {
   return (
     <WeatherContainer className="WeatherIconContainer">
-      <WeatherIcon className="WeatherIcon" src={weather} alt="weather icon"/>
+      <WeatherIcon className="WeatherIcon" src={weatherIcon} alt="weather icon"/>
     </WeatherContainer>
   )
 }

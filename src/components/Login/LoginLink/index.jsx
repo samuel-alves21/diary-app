@@ -38,7 +38,7 @@ const StyledLink = styled(Link)`
 
   @keyframes width-animation {
     0% {
-      transform: scale(0)
+      transform: scale(0);
     }
     100% {
       transform: scale(1);
@@ -46,7 +46,7 @@ const StyledLink = styled(Link)`
   }
   @keyframes width-animation-reverse {
     100% {
-      transform: scale(0)
+      transform: scale(0);
     }
     0% {
       transform: scale(1);

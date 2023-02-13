@@ -1,22 +1,20 @@
 import styled from "styled-components"
-import CloseIcon from '@material-ui/icons/Close';
 import { useContext } from "react";
 import { EditToggleContext } from "../../contexts/editContext";
 import { EditInputs } from "./EditInputs";
 import { InputsContext } from "../../contexts/inputsContext";
+import { CloseButton } from "./CloseButton";
 
 export const EditWindow = () => {
-  const { editToggle, setEditToggle } = useContext(EditToggleContext)
-  const { inputValue } = useContext(InputsContext)
+  const { editToggle } = useContext(EditToggleContext)
+  const { inputValue: {action : {type}} } = useContext(InputsContext)
 
   return (
     <EditWindowContainer className="edit-window-container" on={editToggle}>
       <EditField className="edit-field">
-        <AcitionP>{inputValue.action}</AcitionP>
-        <IconCircle className="circle" onClick={() => setEditToggle(!editToggle)}>
-          <OutIcon />
-        </IconCircle>
+        <AcitionP>{type}</AcitionP>
         <EditInputs />
+        <CloseButton />
       </EditField>
     </EditWindowContainer>
   )
@@ -55,26 +53,4 @@ const EditField = styled.div`
 
   position: relative;
   
-`
-export const IconCircle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 50px;
-  height: 50px;
-  top: -25px;
-
-  background-color: var(--color-secundary);
-  border-radius: 50px;
-  position: absolute;
-  
-
-  &:hover {
-    cursor: pointer;
-  }
-`
-
-const OutIcon = styled(CloseIcon)`
-  color: white !important;
 `
