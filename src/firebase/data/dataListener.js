@@ -14,5 +14,6 @@ export const dataListener = (removeListener, user, userDispatch, ) => {
   const onError = (error) => console.log(error)
 
   const contactsRef = ref(database, `users/${user.uid}/contacts/`)
+  
   onValue(contactsRef, onSuccess, onError)
 }

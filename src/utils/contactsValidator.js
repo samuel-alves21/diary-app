@@ -13,6 +13,13 @@ export const contactsValidator = (inputValue) => {
     }
   }
 
+  if (name.length > 30 || email.length > 30) {
+    return {
+      isCorrect: false,
+      errorMessenge: 'name and email cannot have more than 30 characters'
+    }
+  }
+
   if (!regexEmail.test(email)) {
     return {
       isCorrect: false,

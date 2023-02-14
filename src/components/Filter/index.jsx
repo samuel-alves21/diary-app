@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import styled from "styled-components"
-import { EditToggleContext } from "../../contexts/editContext"
+import { EditToggleContext } from "../../contexts/editToggleContext"
 
 export const Filter = () => {
   const { editToggle } = useContext(EditToggleContext)

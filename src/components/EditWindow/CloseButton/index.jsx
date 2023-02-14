@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import styled from "styled-components"
 import CloseIcon from '@material-ui/icons/Close';
-import { EditToggleContext } from "../../../contexts/editContext"
+import { EditToggleContext } from "../../../contexts/editToggleContext"
 import { InputErrorMsgContext } from "../../../contexts/InputErrorMsgContext";
 
 

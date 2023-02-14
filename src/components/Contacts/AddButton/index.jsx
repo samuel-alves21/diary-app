@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import AddIcon from '@material-ui/icons/Add';
 import { useContext } from "react";
-import { EditToggleContext } from "../../../contexts/editContext";
+import { EditToggleContext } from "../../../contexts/editToggleContext";
 import { InputsContext } from "../../../contexts/inputsContext";
 
 export const AddButton = () => {

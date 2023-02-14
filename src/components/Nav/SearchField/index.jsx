@@ -3,21 +3,21 @@ import { useRef, useContext } from "react"
 import { SearchContext } from "../../../contexts/searchContext"
 import { TextCleaner, SerachIconContainer } from "../TextCleaner"
 
-const handleChange = (e, setSearchValue) => {
-  setSearchValue(e.target.value)
-}
-
 export const SearchField = () => {
   const input = useRef()
 
   const { setSearchValue } = useContext(SearchContext)
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value.toLowerCase())
+  }
 
   return (
     <SearchFieldContainer className="search-field-container">
       <Input 
       ref={input}
       placeholder="type to filter by name..." 
-      onChange={(e) => handleChange(e, setSearchValue)}/>
+      onChange={(e) => handleChange(e)}/>
       <TextCleaner input={input}/>
     </SearchFieldContainer>
   )

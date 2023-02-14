@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useContext } from "react";
-import { EditToggleContext } from "../../contexts/editContext";
+import { EditToggleContext } from "../../contexts/editToggleContext";
 import { EditInputs } from "./EditInputs";
 import { InputsContext } from "../../contexts/inputsContext";
 import { CloseButton } from "./CloseButton";

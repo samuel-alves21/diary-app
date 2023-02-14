@@ -2,13 +2,14 @@ import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import styled from 'styled-components';
 import { useContext, useCallback } from 'react';
-import { EditToggleContext } from '../../../contexts/editContext';
+import { EditToggleContext } from '../../../contexts/editToggleContext';
 import { InputsContext } from '../../../contexts/inputsContext';
 import { UserContext } from '../../../contexts/userContext';
-import { deletecontacts } from '../../../firebase/data/deleteContacts';
+import { DeleteToggleContext } from '../../../contexts/deleteToggleContext';
 
 export const ContactIcons = ({ data }) => {
   const { setEditToggle } = useContext(EditToggleContext)
+  const { setDeleteToggle } = useContext(DeleteToggleContext)
   const { setInputValue } = useContext(InputsContext)
   const { userState: { user } } = useContext(UserContext)
 
@@ -20,14 +21,20 @@ export const ContactIcons = ({ data }) => {
       setInputValue((inputValue) => {
         return  {...inputValue, name, email, tel, action: {type: 'Edit', id}}
       })
-    } else {
+    } 
+    if (e.target.id === 'delete') {
+      setDeleteToggle((deleteToggle) => !deleteToggle)
       setInputValue((inputValue) => {
-        inputValue = {...inputValue, name, email, tel}
-        deletecontacts(id, user)
-        return inputValue
+        return  {
+          ...inputValue, 
+          name: '',
+          email: '',
+          tel: '',
+          action: { type: 'Delete', id }
+        }
       })
     }
-  }, [data, setEditToggle, setInputValue, user])
+  }, [data, setEditToggle, setInputValue, user, setDeleteToggle])
   
   return (
     <IconWrapper>
@@ -58,6 +65,7 @@ const Edit = styled(EditOutlinedIcon)`
 const Delete = styled(DeleteOutlineOutlinedIcon)`
   color: var(--color-primary) !important;
   font-size: 1.5rem !important;
+  margin-left: 5px;
 
   &:hover{
     cursor: pointer;

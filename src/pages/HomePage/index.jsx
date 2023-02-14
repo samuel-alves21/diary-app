@@ -7,13 +7,15 @@ import { Filter } from "../../components/Filter"
 import { Footer } from "../../components/Footer"
 import { Nav } from "../../components/Nav"
 import { UserMessage } from "../../components/UserMessage"
-import { EditToggleProvider } from "../../contexts/editContext"
+import { EditToggleProvider } from "../../contexts/editToggleContext"
 import { SearchProvider } from "../../contexts/searchContext"
 import { UserContext } from "../../contexts/userContext"
 import { Loader } from "../../components/Loader"
 import { dataListener } from "../../firebase/data/dataListener"
-import { readUsername } from "../../firebase/auth/readUserName"
+import { readUsername } from "../../firebase/data/readUserName"
 import { InputsProvider } from "../../contexts/inputsContext"
+import { DeleteToggleProvider } from "../../contexts/deleteToggleContext"
+import { DeleteWindow } from "../../components/DeleteWindow"
 
 export const HomePage = () => {
   const navigate = useNavigate()
@@ -35,17 +37,20 @@ export const HomePage = () => {
     <HomePageContainer className="home-page">
       <SearchProvider>
         <InputsProvider>
-        <EditToggleProvider>
-            { contacts === '' ? <Loader /> :
-            <>
-              <Filter />
-              <EditWindow />
-              <Nav />
-              <UserMessage />
-              <Contacts />
-              <Footer />
-            </> }
-        </EditToggleProvider>
+          <DeleteToggleProvider>
+            <EditToggleProvider>
+                { contacts === '' ? <Loader /> :
+                <>
+                  <Filter />
+                  <EditWindow />
+                  <DeleteWindow />
+                  <Nav />
+                  <UserMessage />
+                  <Contacts />
+                  <Footer />
+                </> }
+            </EditToggleProvider>
+          </DeleteToggleProvider>
         </InputsProvider>
       </SearchProvider>
     </HomePageContainer>
