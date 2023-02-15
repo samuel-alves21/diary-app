@@ -4,7 +4,7 @@ import { ContactIcons } from "../ContactIcons";
 
 export const ContactData = React.memo( function ContactData({ contact }) {
   return (
-    <div className="contact" id={contact.id}>
+    <Contact className="contact" id={contact.id}>
       <Line className="line" />
       <Contactcontainer className="contact-container">
         <Name className="name">
@@ -20,9 +20,15 @@ export const ContactData = React.memo( function ContactData({ contact }) {
           name: contact.name, email :contact.email, tel :contact.tel, id: contact.id
         }}/>
       </Contactcontainer>
-    </div>
+    </Contact>
   )
 })
+
+const Contact = styled.div`
+  &:hover {
+    background-color: var(--color-secundary-light);
+  }
+`
 
 const Contactcontainer = styled.div`
   display: flex;

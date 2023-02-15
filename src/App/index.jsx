@@ -55,6 +55,7 @@ const GeneralStyle =createGlobalStyle`
     --color-primary: rgb(54, 54, 212);
 
     --color-secundary: rgb(111, 111, 224);
+    --color-secundary-light:rgba(111, 111, 224, 0.267);
     --color-secundary-dark: rgb(90, 90, 223);
   }
 `
