@@ -1,26 +1,26 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import InstagramIcon from '@material-ui/icons/Instagram'
 
 export const DeveloperInfo = () => {
   return (
     <DeveloperInfoContaner>
-      <Info className="p-footer" >Developed by <Developer className="p-footer" >Samuel Alves</Developer></Info>
+      <Info className='p-footer'>
+        Developed by <Developer className='p-footer'>Samuel Alves</Developer>
+      </Info>
       <Link
-
-      href="https://github.com/samuel-alves21" 
-      target="_blank" 
-      rel="noreferrer">
-
-        <Github className="p-github" />
+        href='https://github.com/samuel-alves21'
+        target='_blank'
+        rel='noreferrer'
+      >
+        <Github className='p-github' />
       </Link>
-      <Link 
-      
-      href="https://www.instagram.com/samuel_alves.21/" 
-      target="_blank" 
-      rel="noreferrer">
-        
-        <Instagram className="p-instagram" />
+      <Link
+        href='https://www.instagram.com/samuel_alves.21/'
+        target='_blank'
+        rel='noreferrer'
+      >
+        <Instagram className='p-instagram' />
       </Link>
     </DeveloperInfoContaner>
   )
@@ -28,7 +28,7 @@ export const DeveloperInfo = () => {
 
 const DeveloperInfoContaner = styled.div`
   display: flex;
-  align-items: center
+  align-items: center;
 `
 
 const Info = styled.p`
@@ -54,6 +54,6 @@ const Link = styled.a`
   }
 
   &:hover {
-    color: var(--color-secundary); 
+    color: var(--color-secundary);
   }
 `

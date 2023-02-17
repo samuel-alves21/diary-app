@@ -1,16 +1,22 @@
-import { useContext } from "react"
-import styled from "styled-components"
-import DoneIcon from '@material-ui/icons/Done';
-import CloseIcon from '@material-ui/icons/Close';
-import { DeleteToggleContext } from "../../contexts/deleteToggleContext"
-import { InputsContext } from "../../contexts/inputsContext";
-import { deleteContacts } from "../../firebase/data/deleteContacts";
-import { UserContext } from "../../contexts/userContext";
+import { useContext } from 'react'
+import styled from 'styled-components'
+import DoneIcon from '@material-ui/icons/Done'
+import CloseIcon from '@material-ui/icons/Close'
+import { DeleteToggleContext } from '../../contexts/deleteToggleContext'
+import { InputsContext } from '../../contexts/inputsContext'
+import { deleteContacts } from '../../firebase/data/deleteContacts'
+import { UserContext } from '../../contexts/userContext'
 
 export const DeleteWindow = () => {
   const { deleteToggle, setDeleteToggle } = useContext(DeleteToggleContext)
-  const { inputValue: {action : {id}} } = useContext(InputsContext)
-  const { userState: { user } } = useContext(UserContext)
+  const {
+    inputValue: {
+      action: { id },
+    },
+  } = useContext(InputsContext)
+  const {
+    userState: { user },
+  } = useContext(UserContext)
 
   const handleClick = (e) => {
     if (e.target.parentElement.id === 'cancel') {
@@ -24,24 +30,23 @@ export const DeleteWindow = () => {
 
   return (
     <DeleteWindowContainer on={deleteToggle}>
-      <MsgContainer >
+      <MsgContainer>
         <P>Tem certeza Disso?</P>
         <IconsContainer>
-          <div id="done">
-            <StyledDoneIcon onClick={(e) => handleClick(e)}/>
+          <div id='done'>
+            <StyledDoneIcon onClick={(e) => handleClick(e)} />
           </div>
-          <div id="cancel">
-            <StyledCloseIcon onClick={(e) => handleClick(e)}/>
+          <div id='cancel'>
+            <StyledCloseIcon onClick={(e) => handleClick(e)} />
           </div>
         </IconsContainer>
       </MsgContainer>
-
     </DeleteWindowContainer>
   )
 }
 
 const DeleteWindowContainer = styled.div`
-  display: ${props => props.on ? 'flex' : 'none'};
+  display: ${(props) => (props.on ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -64,7 +69,7 @@ const MsgContainer = styled.div`
   background-color: rgba(90, 90, 223, 0.644);
 `
 const P = styled.p`
-  color: white
+  color: white;
 `
 
 const IconsContainer = styled.div`
@@ -77,7 +82,7 @@ const StyledDoneIcon = styled(DoneIcon)`
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.2)
+    transform: scale(1.2);
   }
 `
 const StyledCloseIcon = styled(CloseIcon)`
@@ -86,6 +91,6 @@ const StyledCloseIcon = styled(CloseIcon)`
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.2)
+    transform: scale(1.2);
   }
 `

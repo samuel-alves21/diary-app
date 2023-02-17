@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import { IconCircle } from "../../EditWindow/CloseButton"
-import { Btn } from "../../EditWindow/EditSubmitBtn"
-import DoneIcon from '@material-ui/icons/Done';
+import styled from 'styled-components'
+import { IconCircle } from '../../EditWindow/CloseButton'
+import { Btn } from '../../EditWindow/EditSubmitBtn'
+import DoneIcon from '@material-ui/icons/Done'
 
 export const RedirectingMsg = ({ setShouldRedirect }) => {
   return (
@@ -46,7 +46,6 @@ const Content = styled.div`
   text-align: center;
 `
 
-
 const Button = styled(Btn)`
   margin-top: calc(0.5vw + 30px);
 `
@@ -57,7 +56,7 @@ const P = styled.p`
 `
 
 const CheckIcon = styled(IconCircle)`
-  background-color: var(--color-secundary-dark)
+  background-color: var(--color-secundary-dark);
 `
 
 const Icon = styled(DoneIcon)`

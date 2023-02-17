@@ -1,5 +1,5 @@
 import dayIcon from '../img/dayIcon.png'
-import nightIcon from '../img/nightIcon.png' 
+import nightIcon from '../img/nightIcon.png'
 
 export const getCurrentHour = () => {
   const timeStamp = Date.now() * 1000

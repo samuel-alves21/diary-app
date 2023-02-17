@@ -1,17 +1,24 @@
-import styled from "styled-components"
-import { useContext } from "react";
-import { EditToggleContext } from "../../contexts/editToggleContext";
-import { EditInputs } from "./EditInputs";
-import { InputsContext } from "../../contexts/inputsContext";
-import { CloseButton } from "./CloseButton";
+import styled from 'styled-components'
+import { useContext } from 'react'
+import { EditToggleContext } from '../../contexts/editToggleContext'
+import { EditInputs } from './EditInputs'
+import { InputsContext } from '../../contexts/inputsContext'
+import { CloseButton } from './CloseButton'
 
 export const EditWindow = () => {
   const { editToggle } = useContext(EditToggleContext)
-  const { inputValue: {action : {type}} } = useContext(InputsContext)
+  const {
+    inputValue: {
+      action: { type },
+    },
+  } = useContext(InputsContext)
 
   return (
-    <EditWindowContainer className="edit-window-container" on={editToggle}>
-      <EditField className="edit-field">
+    <EditWindowContainer
+      className='edit-window-container'
+      on={editToggle}
+    >
+      <EditField className='edit-field'>
         <AcitionP>{type}</AcitionP>
         <EditInputs />
         <CloseButton />
@@ -27,7 +34,7 @@ const AcitionP = styled.p`
 `
 
 const EditWindowContainer = styled.div`
-  display: ${props => props.on ? 'flex' : 'none'};
+  display: ${({ on }) => (on ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -52,5 +59,4 @@ const EditField = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
   position: relative;
-  
 `

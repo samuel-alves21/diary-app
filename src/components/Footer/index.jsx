@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { DeveloperInfo } from "./DeveloperInfo"
-import { IconsInfo } from "./IconsInfo"
+import styled from 'styled-components'
+import { DeveloperInfo } from './DeveloperInfo'
+import { IconsInfo } from './IconsInfo'
 
 export const Footer = () => {
   return (
@@ -25,7 +25,7 @@ export const FooterContainer = styled.footer`
   @media screen and (max-width: 700px) {
     justify-content: space-evenly;
     flex-direction: column;
-    height: 100px;   
+    height: 100px;
     padding: 20px 0;
 
     & .p-footer {
@@ -38,4 +38,4 @@ export const FooterContainer = styled.footer`
       font-size: calc(1vw + 1.1rem) !important;
     }
   }
-` 
+`

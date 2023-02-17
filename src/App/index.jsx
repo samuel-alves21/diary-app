@@ -1,21 +1,21 @@
-import { createGlobalStyle } from "styled-components"
-import { UserContext } from "../contexts/userContext"
-import { BrowserRouter, Routes, Route  } from 'react-router-dom'
-import { useContext } from "react"
+import { createGlobalStyle } from 'styled-components'
+import { UserContext } from '../contexts/userContext'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useContext } from 'react'
 
-import { HomePage } from "../pages/HomePage"
-import { RegisterPage } from "../pages/RegisterPage"
-import { SignInPage } from "../pages/SingInPage"
-import { Loader } from "../components/Loader"
+import { HomePage } from '../pages/HomePage'
+import { RegisterPage } from '../pages/RegisterPage'
+import { SignInPage } from '../pages/SingInPage'
+import { Loader } from '../components/Loader'
 
-import { initializeApp } from "firebase/app"
-import { firebaseConfig } from "../firebase/firebaseConfig"
+import { initializeApp } from 'firebase/app'
+import { firebaseConfig } from '../firebase/firebaseConfig'
 import { getAuth } from 'firebase/auth'
-import { getDatabase } from "firebase/database"
-import { useAuth } from "../hooks/useAuth"
+import { getDatabase } from 'firebase/database'
+import { useAuth } from '../hooks/useAuth'
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const app = initializeApp(firebaseConfig)
+export const auth = getAuth(app)
 export const database = getDatabase(app)
 
 const App = () => {
@@ -23,23 +23,33 @@ const App = () => {
   useAuth(userDispatch)
 
   return (
-    <div className="App">
+    <div className='App'>
       <GeneralStyle />
-      { userState.user === '' ? 
-      <Loader />
-      :
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />}/>
-          <Route path="/sign-in" element={<SignInPage />}/>
-          <Route path="/register" element={<RegisterPage />}/>
-        </Routes>
-      </BrowserRouter> }
+      {userState.user === '' ? (
+        <Loader />
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path='/'
+              element={<HomePage />}
+            />
+            <Route
+              path='/sign-in'
+              element={<SignInPage />}
+            />
+            <Route
+              path='/register'
+              element={<RegisterPage />}
+            />
+          </Routes>
+        </BrowserRouter>
+      )}
     </div>
   )
 }
 
-const GeneralStyle =createGlobalStyle`
+const GeneralStyle = createGlobalStyle`
   *,
   *::before,
   *::after {

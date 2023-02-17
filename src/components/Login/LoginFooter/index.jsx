@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import { FooterContainer } from "../../Footer"
-import { DeveloperInfo } from "../../Footer/DeveloperInfo"
-import { IconsInfo } from "../../Footer/IconsInfo"
+import styled from 'styled-components'
+import { FooterContainer } from '../../Footer'
+import { DeveloperInfo } from '../../Footer/DeveloperInfo'
+import { IconsInfo } from '../../Footer/IconsInfo'
 
 export const LoginFooter = () => {
   return (

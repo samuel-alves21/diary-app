@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { NavContainer } from "../../Nav"
-import { Logo } from "../../Nav/Logo"
+import styled from 'styled-components'
+import { NavContainer } from '../../Nav'
+import { Logo } from '../../Nav/Logo'
 
 export const LoginHeader = () => {
   return (

@@ -1,9 +1,7 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const LoginForm = ({ children }) => {
-  return (
-    <Form>{children}</Form>
-  )
+  return <Form>{children}</Form>
 }
 
 const Form = styled.form`
@@ -17,7 +15,7 @@ const Form = styled.form`
   min-width: 300px;
   max-width: 500px;
   padding: 60px 0;
-  
+
   background-color: var(--color-secundary);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 10px;

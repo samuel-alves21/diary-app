@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { createContext } from "react";
+import { useState } from 'react'
+import { createContext } from 'react'
 
 export const InputErrorMsgContext = createContext()
 
 export const InputErrorMsgProvider = ({ children }) => {
-  const [ error, setError ] = useState({
+  const [error, setError] = useState({
     hasError: false,
-    errorMsg: ''
+    errorMsg: '',
   })
 
   return (

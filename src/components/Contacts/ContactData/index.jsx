@@ -1,24 +1,26 @@
-import React from "react";
-import styled from "styled-components";
-import { ContactIcons } from "../ContactIcons";
+import React from 'react'
+import styled from 'styled-components'
+import { ContactIcons } from '../ContactIcons'
 
-export const ContactData = React.memo( function ContactData({ contact }) {
+export const ContactData = React.memo(function ContactData({ contact }) {
   return (
-    <Contact className="contact" id={contact.id}>
-      <Line className="line" />
-      <Contactcontainer className="contact-container">
-        <Name className="name">
-          {contact.name}
-        </Name>
-        <Email className="email">
-          {contact.email}
-        </Email>
-        <Tel className="tel">
-          {contact.tel}
-        </Tel>
-        <ContactIcons data={{ 
-          name: contact.name, email :contact.email, tel :contact.tel, id: contact.id
-        }}/>
+    <Contact
+      className='contact'
+      id={contact.id}
+    >
+      <Line className='line' />
+      <Contactcontainer className='contact-container'>
+        <Name className='name'>{contact.name}</Name>
+        <Email className='email'>{contact.email}</Email>
+        <Tel className='tel'>{contact.tel}</Tel>
+        <ContactIcons
+          data={{
+            name: contact.name,
+            email: contact.email,
+            tel: contact.tel,
+            id: contact.id,
+          }}
+        />
       </Contactcontainer>
     </Contact>
   )
@@ -37,7 +39,7 @@ const Contactcontainer = styled.div`
   margin: 10px 0;
 
   @media screen and (max-width: 370px) {
-    gap: 10px
+    gap: 10px;
   }
 `
 

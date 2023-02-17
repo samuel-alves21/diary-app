@@ -1,18 +1,18 @@
-import styled from "styled-components"
-import { useState } from "react"
-import { AddButton } from "../AddButton"
-import { SortButton } from "../SortButton"
-import { DropDownOptions } from "../DropDownOptions"
+import styled from 'styled-components'
+import { useState } from 'react'
+import { AddButton } from '../AddButton'
+import { SortButton } from '../SortButton'
+import { DropDownOptions } from '../DropDownOptions'
 
 export const DropDown = ({ sort }) => {
-  const [ dropDownToggle, setDropDownToggle ] = useState(false)
+  const [dropDownToggle, setDropDownToggle] = useState(false)
 
   return (
-    <DropDownContainer className="dropdown-container">
+    <DropDownContainer className='dropdown-container'>
       <AddButton />
       <SortButtonDiv>
-        <SortButton sets={{ dropDownToggle, setDropDownToggle }}/>
-        <DropDownOptions sets={{ dropDownToggle, setDropDownToggle, sort }}/>
+        <SortButton sets={{ dropDownToggle, setDropDownToggle }} />
+        <DropDownOptions sets={{ dropDownToggle, setDropDownToggle, sort }} />
       </SortButtonDiv>
     </DropDownContainer>
   )

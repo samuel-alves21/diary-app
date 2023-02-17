@@ -1,13 +1,17 @@
-import styled from "styled-components"
-import { useContext } from "react"
-import { UserContext } from "../../../contexts/userContext"
-import { createContacts } from "../../../firebase/data/createContacts"
-import { updateContacts } from "../../../firebase/data/updateContacts"
-import { contactsValidator } from "../../../utils/contactsValidator"
-import { InputErrorMsgContext } from "../../../contexts/InputErrorMsgContext"
+import styled from 'styled-components'
+import { useContext } from 'react'
+import { UserContext } from '../../../contexts/userContext'
+import { createContacts } from '../../../firebase/data/createContacts'
+import { updateContacts } from '../../../firebase/data/updateContacts'
+import { contactsValidator } from '../../../utils/contactsValidator'
+import { InputErrorMsgContext } from '../../../contexts/InputErrorMsgContext'
 
-export const EditSubmitBtn = ({ inputContext: { inputValue, setInputValue } }) => {
-  const { userState: { user } } = useContext(UserContext)
+export const EditSubmitBtn = ({
+  inputContext: { inputValue, setInputValue },
+}) => {
+  const {
+    userState: { user },
+  } = useContext(UserContext)
   const { setError } = useContext(InputErrorMsgContext)
 
   const handleClick = (e) => {
@@ -18,7 +22,7 @@ export const EditSubmitBtn = ({ inputContext: { inputValue, setInputValue } }) =
       if (isCorrect) {
         setError({ hasError: false, errorMsg: '' })
         createContacts(user, inputValue)
-        setInputValue({name: '', email: '', tel: '', action: { type: 'Add' }})
+        setInputValue({ name: '', email: '', tel: '', action: { type: 'Add' } })
       } else {
         setError({ hasError: true, errorMsg: errorMessenge })
       }
@@ -47,7 +51,7 @@ export const Btn = styled.button`
   color: var(--color-primary);
   font-weight: 500;
   font-size: 1rem;
-  
+
   background-color: transparent;
   border: 2px solid var(--color-primary);
 

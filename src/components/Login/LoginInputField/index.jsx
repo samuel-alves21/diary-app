@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const handleChange = (e, setEmail, setPassword, setName) => {
   if (e.target.id === 'email') {
@@ -12,15 +12,23 @@ const handleChange = (e, setEmail, setPassword, setName) => {
   }
 }
 
-export const LoginInputField = ({ labelId, labelValue, inputType, setEmail, setPassword, setName}) => {
-
+export const LoginInputField = ({
+  labelId,
+  labelValue,
+  inputType,
+  setEmail,
+  setPassword,
+  setName,
+}) => {
   return (
     <InputContainer>
       <Label htmlFor={labelId}>{labelValue}</Label>
-      <Input autoComplete="off"
-      type={inputType} 
-      id={labelId} 
-      onChange={(e) => handleChange(e, setEmail, setPassword, setName)}/>
+      <Input
+        autoComplete='off'
+        type={inputType}
+        id={labelId}
+        onChange={(e) => handleChange(e, setEmail, setPassword, setName)}
+      />
     </InputContainer>
   )
 }
@@ -29,7 +37,7 @@ const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   width: 80%;
   margin-top: 20px;
 `
@@ -42,7 +50,7 @@ const Input = styled.input`
   outline: none;
 
   transition: border-radius 0.05s;
-  
+
   &:focus {
     border-radius: 10px;
   }

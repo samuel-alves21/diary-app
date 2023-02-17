@@ -1,18 +1,21 @@
-import { useContext } from "react"
-import styled from "styled-components"
-import { EditToggleContext } from "../../contexts/editToggleContext"
+import { useContext } from 'react'
+import styled from 'styled-components'
+import { EditToggleContext } from '../../contexts/editToggleContext'
 
 export const Filter = () => {
   const { editToggle } = useContext(EditToggleContext)
 
   return (
-    <FilterStyled on={editToggle} className='filter'></FilterStyled>
+    <FilterStyled
+      on={editToggle}
+      className='filter'
+    ></FilterStyled>
   )
 }
 
 const FilterStyled = styled.div`
-  display: ${props => props.on ? 'Block' : 'none'};
-  background-color: rgba(0, 0, 0, 0.20);
+  display: ${(props) => (props.on ? 'Block' : 'none')};
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 5;
 
   width: 100%;

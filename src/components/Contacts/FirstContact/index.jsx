@@ -1,8 +1,8 @@
-import styled from "styled-components"
-import { useContext } from "react"
-import { EditToggleContext } from "../../../contexts/editToggleContext"
-import { InputsContext } from "../../../contexts/inputsContext"
-import { StyledButton } from "../SortButton"
+import styled from 'styled-components'
+import { useContext } from 'react'
+import { EditToggleContext } from '../../../contexts/editToggleContext'
+import { InputsContext } from '../../../contexts/inputsContext'
+import { StyledButton } from '../SortButton'
 
 export const FirstContact = () => {
   const { editToggle, setEditToggle } = useContext(EditToggleContext)
@@ -11,15 +11,20 @@ export const FirstContact = () => {
   const handleClick = () => {
     setEditToggle(!editToggle)
     setInputValue({
-      ...inputValue, name: '', email: '', tel: '', action: {type: 'Add'}
+      ...inputValue,
+      name: '',
+      email: '',
+      tel: '',
+      action: { type: 'Add' },
     })
   }
 
   return (
     <FirstContactContainer>
       <P>Voce ainda não possui contatos</P>
-      <AddFirstContactButton 
-      onClick={handleClick}>add contact</AddFirstContactButton>
+      <AddFirstContactButton onClick={handleClick}>
+        add contact
+      </AddFirstContactButton>
     </FirstContactContainer>
   )
 }
@@ -36,5 +41,5 @@ const AddFirstContactButton = styled(StyledButton)`
 `
 
 const P = styled.p`
-  margin-bottom: 10px
+  margin-bottom: 10px;
 `

@@ -1,14 +1,14 @@
-import styled from "styled-components"
-import { useMediaQuery } from "react-responsive"
-import { Logo } from "./Logo"
-import { Logout } from "./Logout"
-import { SearchField } from "./SearchField"
+import styled from 'styled-components'
+import { useMediaQuery } from 'react-responsive'
+import { Logo } from './Logo'
+import { Logout } from './Logout'
+import { SearchField } from './SearchField'
 
 export const Nav = () => {
   const isSmallScreen = useMediaQuery({ query: '(max-width: 430px)' })
 
   return (
-    <NavContainer className="nav-container">
+    <NavContainer className='nav-container'>
       {!isSmallScreen && <Logo />}
       <SearchField />
       <Logout />

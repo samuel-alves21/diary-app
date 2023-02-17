@@ -1,42 +1,46 @@
-import styled from "styled-components"
-import { useState } from "react"
-import { LoginInputField } from "../LoginInputField"
-import { LoginSubmitBtn } from "../LoginSubmitBtn"
-import { ErrorMsg } from "../../ErrorMsg"
-import { LoginForm } from "../LoginForm"
-import { LoginLink } from "../LoginLink"
+import styled from 'styled-components'
+import { useState } from 'react'
+import { LoginInputField } from '../LoginInputField'
+import { LoginSubmitBtn } from '../LoginSubmitBtn'
+import { ErrorMsg } from '../../ErrorMsg'
+import { LoginForm } from '../LoginForm'
+import { LoginLink } from '../LoginLink'
 
 export const SingIn = () => {
-  const [ email, setEmail ] = useState('')
-  const [ password, setPassword ] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   return (
-    <LoginForm className="input-container">
+    <LoginForm className='input-container'>
       <H2>Sign in</H2>
-      
-      <LoginInputField 
-      labelId='email' 
-      labelValue='email:' 
-      inputType='text' 
-      setEmail={setEmail} 
-      setPassword={setPassword}/>
 
-      <LoginInputField 
-      labelId='password' 
-      labelValue='password:' 
-      inputType='password' 
-      setEmail={setEmail} 
-      setPassword={setPassword}/>
+      <LoginInputField
+        labelId='email'
+        labelValue='email:'
+        inputType='text'
+        setEmail={setEmail}
+        setPassword={setPassword}
+      />
+
+      <LoginInputField
+        labelId='password'
+        labelValue='password:'
+        inputType='password'
+        setEmail={setEmail}
+        setPassword={setPassword}
+      />
 
       <ErrorMsg />
 
-      <LoginSubmitBtn 
-      email={email} 
-      password={password}
-      action='signIn'
+      <LoginSubmitBtn
+        email={email}
+        password={password}
+        action='signIn'
       />
-      
-      <RegisterMessege>Or <LoginLink to='/register'>register</LoginLink> to create an account</RegisterMessege>
+
+      <RegisterMessege>
+        Or <LoginLink to='/register'>register</LoginLink> to create an account
+      </RegisterMessege>
     </LoginForm>
   )
 }

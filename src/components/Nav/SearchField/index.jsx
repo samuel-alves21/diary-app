@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import { useRef, useContext } from "react"
-import { SearchContext } from "../../../contexts/searchContext"
-import { TextCleaner, SerachIconContainer } from "../TextCleaner"
+import styled from 'styled-components'
+import { useRef, useContext } from 'react'
+import { SearchContext } from '../../../contexts/searchContext'
+import { TextCleaner, SerachIconContainer } from '../TextCleaner'
 
 export const SearchField = () => {
   const input = useRef()
@@ -13,12 +13,13 @@ export const SearchField = () => {
   }
 
   return (
-    <SearchFieldContainer className="search-field-container">
-      <Input 
-      ref={input}
-      placeholder="type to filter by name..." 
-      onChange={(e) => handleChange(e)}/>
-      <TextCleaner input={input}/>
+    <SearchFieldContainer className='search-field-container'>
+      <Input
+        ref={input}
+        placeholder='type to filter by name...'
+        onChange={(e) => handleChange(e)}
+      />
+      <TextCleaner input={input} />
     </SearchFieldContainer>
   )
 }
@@ -46,9 +47,8 @@ const Input = styled.input`
   &:focus {
     border-radius: 10px 0 0 10px;
 
-   + ${SerachIconContainer} {
+    + ${SerachIconContainer} {
       border-radius: 0 10px 10px 0;
     }
   }
 `
-

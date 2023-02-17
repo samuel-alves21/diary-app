@@ -1,9 +1,11 @@
-import { useContext } from "react"
-import styled from "styled-components"
-import { InputErrorMsgContext } from "../../contexts/InputErrorMsgContext"
+import { useContext } from 'react'
+import styled from 'styled-components'
+import { InputErrorMsgContext } from '../../contexts/InputErrorMsgContext'
 
 export const ErrorMsg = () => {
-  const { error: { hasError, errorMsg } } = useContext(InputErrorMsgContext)
+  const {
+    error: { hasError, errorMsg },
+  } = useContext(InputErrorMsgContext)
 
   return (
     <ErrorMsgContainer error={hasError}>
@@ -13,10 +15,10 @@ export const ErrorMsg = () => {
 }
 
 const ErrorMsgContainer = styled.div`
-  display: ${props => props.error ? 'inline' : 'none'};
+  display: ${(props) => (props.error ? 'inline' : 'none')};
   width: 80%;
   margin-top: 10px;
-  
+
   color: white;
   background-color: #fd6666;
 `

@@ -1,9 +1,13 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Weather = ({ weatherIcon }) => {
   return (
-    <WeatherContainer className="WeatherIconContainer">
-      <WeatherIcon className="WeatherIcon" src={weatherIcon} alt="weather icon"/>
+    <WeatherContainer className='WeatherIconContainer'>
+      <WeatherIcon
+        className='WeatherIcon'
+        src={weatherIcon}
+        alt='weather icon'
+      />
     </WeatherContainer>
   )
 }

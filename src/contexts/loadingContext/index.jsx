@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { createContext } from "react";
+import { useState } from 'react'
+import { createContext } from 'react'
 
 export const LoadingContext = createContext()
 
 export const LoadingProvider = ({ children }) => {
-  const [ loading, setLoading ] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   return (
     <LoadingContext.Provider value={{ loading, setLoading }}>

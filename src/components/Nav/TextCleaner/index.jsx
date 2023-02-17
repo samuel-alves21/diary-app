@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import ClearIcon from '@material-ui/icons/Clear';
-import { useContext } from "react";
-import { SearchContext } from "../../../contexts/searchContext";
+import styled from 'styled-components'
+import ClearIcon from '@material-ui/icons/Clear'
+import { useContext } from 'react'
+import { SearchContext } from '../../../contexts/searchContext'
 
 const handleClick = (input, setSearchValue) => {
   setSearchValue('')
@@ -12,8 +12,10 @@ export const TextCleaner = ({ input }) => {
   const { setSearchValue } = useContext(SearchContext)
 
   return (
-    <SerachIconContainer className="search-icon-container"
-    onClick={() => handleClick(input, setSearchValue)}>
+    <SerachIconContainer
+      className='search-icon-container'
+      onClick={() => handleClick(input, setSearchValue)}
+    >
       <SerachIcon />
     </SerachIconContainer>
   )
@@ -43,8 +45,7 @@ export const SerachIconContainer = styled.div`
     cursor: pointer;
 
     ${SerachIcon} {
-      transform: scale(1.0) !important;
+      transform: scale(1) !important;
     }
   }
-
 `

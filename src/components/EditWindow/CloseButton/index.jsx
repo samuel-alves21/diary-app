@@ -1,9 +1,8 @@
-import { useContext } from "react"
-import styled from "styled-components"
-import CloseIcon from '@material-ui/icons/Close';
-import { EditToggleContext } from "../../../contexts/editToggleContext"
-import { InputErrorMsgContext } from "../../../contexts/InputErrorMsgContext";
-
+import { useContext } from 'react'
+import styled from 'styled-components'
+import CloseIcon from '@material-ui/icons/Close'
+import { EditToggleContext } from '../../../contexts/editToggleContext'
+import { InputErrorMsgContext } from '../../../contexts/InputErrorMsgContext'
 
 export const CloseButton = () => {
   const { editToggle, setEditToggle } = useContext(EditToggleContext)
@@ -15,7 +14,10 @@ export const CloseButton = () => {
   }
 
   return (
-    <IconCircle className="circle" onClick={handleClick}>
+    <IconCircle
+      className='circle'
+      onClick={handleClick}
+    >
       <OutIcon />
     </IconCircle>
   )

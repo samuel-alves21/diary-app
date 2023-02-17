@@ -1,16 +1,25 @@
-import styled from "styled-components"
-import { useContext } from "react"
-import { Btn } from "../../EditWindow/EditSubmitBtn"
-import { InputErrorMsgContext } from "../../../contexts/InputErrorMsgContext"
-import { userRegister } from "../../../firebase/auth/userRegister"
-import { userSignIn } from "../../../firebase/auth/userSignIn"
-import { LoadingContext } from "../../../contexts/loadingContext"
+import styled from 'styled-components'
+import { useContext } from 'react'
+import { Btn } from '../../EditWindow/EditSubmitBtn'
+import { InputErrorMsgContext } from '../../../contexts/InputErrorMsgContext'
+import { userRegister } from '../../../firebase/auth/userRegister'
+import { userSignIn } from '../../../firebase/auth/userSignIn'
+import { LoadingContext } from '../../../contexts/loadingContext'
 
-const handleClick = (e, name, email, password, setError, error, setLoading, action) => {
+const handleClick = (
+  e,
+  name,
+  email,
+  password,
+  setError,
+  error,
+  setLoading,
+  action
+) => {
   e.preventDefault()
-  
+
   setLoading(true)
-  
+
   if (action === 'register') {
     userRegister(name, email, password, setError, error, setLoading)
   } else {
@@ -23,8 +32,20 @@ export const LoginSubmitBtn = ({ name, email, password, action }) => {
   const { setLoading } = useContext(LoadingContext)
 
   return (
-    <Button 
-    onClick={(e) => handleClick(e, name, email, password, setError, error, setLoading, action)}>
+    <Button
+      onClick={(e) =>
+        handleClick(
+          e,
+          name,
+          email,
+          password,
+          setError,
+          error,
+          setLoading,
+          action
+        )
+      }
+    >
       Submit
     </Button>
   )

@@ -1,9 +1,11 @@
-import { useContext, useEffect } from "react"
-import { UserContext } from "../contexts/userContext"
-import { SearchContext } from "../contexts/searchContext"
+import { useContext, useEffect } from 'react'
+import { UserContext } from '../contexts/userContext'
+import { SearchContext } from '../contexts/searchContext'
 
-export const useFilter = ( setFinteredContacts) => {
-  const { userState: { contacts }} = useContext(UserContext)
+export const useFilter = (setFinteredContacts) => {
+  const {
+    userState: { contacts },
+  } = useContext(UserContext)
   const { searchValue } = useContext(SearchContext)
 
   useEffect(() => {
@@ -15,7 +17,7 @@ export const useFilter = ( setFinteredContacts) => {
         }
       })
       setFinteredContacts((filteredContacts) => {
-        return {...filteredContacts, content: [...temp]}
+        return { ...filteredContacts, content: [...temp] }
       })
     }
   }, [searchValue, setFinteredContacts, contacts])

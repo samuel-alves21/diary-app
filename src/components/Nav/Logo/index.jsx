@@ -1,10 +1,14 @@
 import styled from 'styled-components'
-import logo from'../../../img/logo.png'
+import logo from '../../../img/logo.png'
 
 export const Logo = () => {
   return (
     <LogoContainer className='logo-container'>
-      <StyledLogo alt='logo icon' src={logo} className="logo"/>
+      <StyledLogo
+        alt='logo icon'
+        src={logo}
+        className='logo'
+      />
     </LogoContainer>
   )
 }

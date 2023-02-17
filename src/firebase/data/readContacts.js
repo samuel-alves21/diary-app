@@ -2,12 +2,10 @@ export const readContacts = (userDispatch, snap) => {
   let contacts = []
 
   snap.forEach((child) => {
-
     let cont = 0
     let contactObj = {}
 
-    child.forEach(((value) => {
-      
+    child.forEach((value) => {
       cont++
       if (cont === 1) contactObj.email = value._node.value_
       if (cont === 2) contactObj.name = value._node.value_
@@ -15,7 +13,7 @@ export const readContacts = (userDispatch, snap) => {
         contactObj.tel = value._node.value_
         contactObj.id = child.key
       }
-    }))
+    })
 
     contacts.push(contactObj)
   })

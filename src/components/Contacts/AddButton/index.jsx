@@ -1,8 +1,8 @@
-import styled from "styled-components"
-import AddIcon from '@material-ui/icons/Add';
-import { useContext } from "react";
-import { EditToggleContext } from "../../../contexts/editToggleContext";
-import { InputsContext } from "../../../contexts/inputsContext";
+import styled from 'styled-components'
+import AddIcon from '@material-ui/icons/Add'
+import { useContext } from 'react'
+import { EditToggleContext } from '../../../contexts/editToggleContext'
+import { InputsContext } from '../../../contexts/inputsContext'
 
 export const AddButton = () => {
   const { editToggle, setEditToggle } = useContext(EditToggleContext)
@@ -11,11 +11,15 @@ export const AddButton = () => {
   const handleClick = () => {
     setEditToggle(!editToggle)
     setInputValue({
-      ...inputValue, name: '', email: '', tel: '', action: { type: 'Add' }
+      ...inputValue,
+      name: '',
+      email: '',
+      tel: '',
+      action: { type: 'Add' },
     })
   }
 
-  return <StyledAddIcon onClick={handleClick}/>
+  return <StyledAddIcon onClick={handleClick} />
 }
 
 const StyledAddIcon = styled(AddIcon)`

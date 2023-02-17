@@ -1,37 +1,45 @@
-import styled from "styled-components"
-import { DropDown } from "./DropDown"
-import { ContactData } from "./ContactData"
-import { useFilter } from "../../hooks/useFilter"
-import { FirstContact } from "./FirstContact"
-import { useState, useContext } from "react"
-import { UserContext } from "../../contexts/userContext"
-
+import styled from 'styled-components'
+import { DropDown } from './DropDown'
+import { ContactData } from './ContactData'
+import { useFilter } from '../../hooks/useFilter'
+import { FirstContact } from './FirstContact'
+import { useState, useContext } from 'react'
+import { UserContext } from '../../contexts/userContext'
 
 export const Contacts = () => {
-  const [ filteredContacts, setFinteredContacts ] = useState({
-    content: [], 
-    hasChanged: false
+  const [filteredContacts, setFinteredContacts] = useState({
+    content: [],
+    hasChanged: false,
   })
-  const { userState: {contacts} } = useContext(UserContext)
+  const {
+    userState: { contacts },
+  } = useContext(UserContext)
 
   useFilter(setFinteredContacts)
 
   return (
-    <ContactsContainer className="contacts-container">
-      { contacts === undefined ? 
+    <ContactsContainer className='contacts-container'>
+      {contacts === undefined ? (
         <FirstContact />
-        : 
+      ) : (
         <>
-          { !!filteredContacts.content.length && <DropDown sort={{filteredContacts, setFinteredContacts}}/> }
-          { filteredContacts.content.length ?
-          filteredContacts.content.map((contact, index) => {
-            return <ContactData contact={contact} key={index}/>
-          }) 
-          :
-          <NothingFound>
-            Seens like I could'n find anything -(
-          </NothingFound> } 
-        </> } 
+          {!!filteredContacts.content.length && (
+            <DropDown sort={{ filteredContacts, setFinteredContacts }} />
+          )}
+          {filteredContacts.content.length ? (
+            filteredContacts.content.map((contact, index) => {
+              return (
+                <ContactData
+                  contact={contact}
+                  key={index}
+                />
+              )
+            })
+          ) : (
+            <NothingFound>Seens like I could'n find anything -(</NothingFound>
+          )}
+        </>
+      )}
     </ContactsContainer>
   )
 }
@@ -54,7 +62,7 @@ const ContactsContainer = styled.div`
     width: 95vw;
   }
 `
-const NothingFound = styled.h3 `
+const NothingFound = styled.h3`
   text-align: center;
   color: var(--color-primary);
 `
